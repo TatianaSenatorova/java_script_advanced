@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="title">title</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto expedita a rerum ipsum ullam incidunt
+        repudiandae laborum temporibus. Asperiores, quo! Voluptas modi quod ab autem molestiae, ratione corrupti
+        corporis suscipit.</p>
+    <input type="text">
+    <script>
+        //document.addEventListener('DOMContentLoaded', function (e) {
+        //console.log(e);
+        //});
+
+        //window.addEventListener('load', function (e) {
+        //console.log('все загрузилось');
+        //});
+
+        window.addEventListener('keydown', function (e) {
+            console.log(e);
+        });
+
+        window.addEventListener('keydown', function (e) {
+            console.log(e.key);
+        });
+
+
+        document.addEventListener('copy', function (e) {
+            const copyText = document.getSelection().toString();
+            console.log(copyText);
+        })
+        window.addEventListener('resize', function (e) {
+            console.log('resize');
+        })
+
+
+        const inputEl = document.querySelector('input');
+        inputEl.addEventListener('input', (event) => {
+
+            if (Number(event.target.value) === 123) {
+                console.log('верно')
+            } else {
+                ('неверно');
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>

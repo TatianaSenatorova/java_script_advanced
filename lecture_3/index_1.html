@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="console.log('hello click html')" class="button">Купить 1</button>
+    <button onclick="console.log('hello click html')" class="button">Купить 2</button>
+    <button onclick="console.log('hello click html')" class="button">Купить 3</button>
+
+    <ul class="menu">
+        <li>item-1</li>
+        <li>item-2</li>
+        <li>item-3</li>
+    </ul>
+
+    <script>
+        //const buttonEl = document.querySelector('.button');
+        //buttonEl.onclick = function (){
+        // console.log('click js button');
+        //}
+        //let count = 0;
+
+        // buttonEl.onclick = function () {
+        // count++;
+        // console.log(`кликов по кнопке ${count}`);
+        //}
+        //buttonEl.addEventListener('click', function (e) {
+        //console.log('click add');
+        //})
+
+        const buttonEls = document.querySelectorAll('.button');
+        buttonEls.forEach(element => {
+            element.addEventListener('click', function (event) {
+                console.log(event.target);
+            });
+        });
+
+
+        const menuEl = document.querySelector('.menu');
+
+       const nameFunction = (e) =>{
+        console.log(e.target, e.currentTarget);
+       }
+
+       menuEl.addEventListener('click', nameFunction);
+
+
+    </script>
+
+
+</body>
+
+</html>
