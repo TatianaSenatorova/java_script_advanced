@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <p class="super_element">Привет</p>
+
+  <img src="https://img.freepik.com/premium-photo/a-lion-cub-on-a-white-background-generative-ai_76964-10849.jpg?w=740"
+    class="image" alt="">
+  <img
+    src="https://img.freepik.com/free-photo/the-red-or-white-cat-i-on-white-studio_155003-13189.jpg?w=360&t=st=1698570806~exp=1698571406~hmac=8e7ba64f195f963dcaa915912773d7de772de36c2e9d209f1dcb6328bb4373a3"
+    class="image" alt="">
+  <img
+    src="https://img.freepik.com/free-photo/european-hedgehog-in-natural-garden-habitat-with-green-grass_1150-18209.jpg?w=740&t=st=1698570905~exp=1698571505~hmac=8d7254a28f6e8858116210c598026538d6f9baf140c1a71bdfdb0253f341a083"
+    class="image" alt="">
+  <img
+    src="https://img.freepik.com/free-photo/beautiful-pet-portrait-of-small-dog-and-cat_23-2149218509.jpg?w=740&t=st=1698570961~exp=1698571561~hmac=e357033dd7495cdfa399f88e19706cae67c6e66bc6fe448a86ebf66ecc2ff7e7"
+    class="image" alt="">
+  <img
+    src="https://img.freepik.com/free-photo/view-of-wild-lynx-in-nature_23-2150460857.jpg?w=360&t=st=1698570712~exp=1698571312~hmac=a2731321e5a928cba50351727cf76291ce9a947982f7a16b2ea8b17d7059cb62"
+    class="image" alt="">
+  <img
+    src="https://img.freepik.com/free-photo/amazing-bengal-tiger-in-the-nature_475641-1205.jpg?w=740&t=st=1698571035~exp=1698571635~hmac=6a4af0128e0dc5270a53b98b873c711e2f5deae4fc36bfbe46bfc912aaab01af"
+    class="image" alt="">
+  <img
+    src="https://img.freepik.com/free-photo/furry-cute-rabbit-isolated_78492-3950.jpg?w=740&t=st=1698571071~exp=1698571671~hmac=6f5517d81db93d05c08191cd103123dff150e0f35e2de917651e5df642a91678"
+    class="image" alt="">
+
+
+  <br>
+
+  <button>Кнопка</button>
+  <button class="super_element">Кнопка с классом btn</button>
+  <button>Кнопка</button>
+
+  <br>
+
+  <textarea></textarea>
+
+  <br>
+
+  <ul>
+    <li>
+      <button>Кнопка 1</button>
+    </li>
+    <li>
+      <button>Кнопка 2</button>
+    </li>
+    <li>
+      <button>Кнопка 3</button>
+    </li>
+    <li>
+      <button>Кнопка 4</button>
+    </li>
+  </ul>
+
+  <script>
+
+    //1. Необходимо вывести сообщение в консоль "все теги прогрузились", когда все теги будут созданы браузером.
+
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('все теги прогрузились');
+    });
+
+    //2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все ресурсы страницы будут загружены.
+    window.addEventListener('load', function () {
+      console.log('страница загрузилась');
+    });
+
+    //3. При клике на какой-либо тег на странице в консоль должно выводиться сообщение наподобие: -->
+    //- Класс "super_element" присутствует в элементе "div".
+    //- сообщение должно определять присутствует или отсутствует класс "super_element"
+    //- у элемента, а также выводить в нижнем регистре верный тег в данной строке, по
+    //- которому был совершен клик.
+    //- Необходимо использовать делегирование.
+
+    const body = document.querySelector('body');
+
+    body.addEventListener('click', (e) => {
+      const tagIdentify = (e.target.tagName).toLowerCase();
+      e.target.classList.contains('super_element') ? console.log(`Класс "super_element" присутствует в элементе ${tagIdentify}`) : console.log(`Класс "super_element" отсутствует в элементе ${tagIdentify}`);
+    });
+
+    //4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение: "Вы навели на textarea."
+
+    const textAreaEl = document.querySelector('textarea');
+    textAreaEl.addEventListener('mouseover', (e) => {
+      console.log(`Вы навели на ${(e.target.tagName).toLowerCase()}.`);
+    });
+
+    //5. Необходимо повесить событие клика на тег ul. В обработчике события в консоль необходимо выводить текст, который записан внутри элемента кнопки, по которой был произведен клик. Если клик был не по кнопке, то ничего выводить не нужно. Необходимо использовать делегирование.
+
+    const menu = document.querySelector('ul');
+    menu.addEventListener('click', (e) => {
+      e.target.tagName = 'button' ? console.log(`${e.target.textContent}`) : console.log('');
+
+    });
+
+    //6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только потом выводится текст из 3 задания, если мы кликаем по кнопкам в ul? Ответ необходимо написать здесь же, под этим комментарием, своими словами.
+
+    //Это эффект всплытия. Обработчики событий сначала срабатывают на элементе, потом на его родителе, потом на родителе родителя и так вверх по всем предкам.
+
+    //7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li. 
+
+    console.log(menu);
+    const listItems = menu.querySelectorAll('li');
+
+    listItems.forEach((el) => {
+      for (let i = 1; i < listItems.length; i += 2) {
+        listItems[i].style.background = 'blue';
+      };
+    });
+  </script>
+
+</body>
+
+</html>
