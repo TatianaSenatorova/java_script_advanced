@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.message{
+    visibility: hidden;
+}
+
+.active{
+    visibility: visible;
+}
+
+.error{
+    border: 1px solid red;
+}

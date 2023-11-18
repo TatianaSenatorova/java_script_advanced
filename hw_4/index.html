@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <input id="from" type="text">
+    В инпуте написано: <span class="add-text"></span>
+
+    <br>
+
+    <button class="messageBtn">Показать блок</button>
+    <div class="message">
+        Привет :)
+    </div>
+
+    <br>
+
+    <form class="form">
+        <label>
+            Первый инпут:
+            <input class="form-control" type="text">
+        </label>
+        <br>
+        <br>
+        <label>
+            Второй инпут:
+            <select class="form-control">
+                <option value=""></option>
+                <option value="1">Один</option>
+                <option value="2">Два</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <button>Отправить</button>
+    </form>
+
+    <script>
+        "use strict";
+
+        //1. При изменении значения в input с id="from", значение содержащееся в нем должно моментально отображаться в span. То есть при печати в input'е тег span также должен меняться. -->
+
+        const inputIdFromEl = document.getElementById('from');
+        const addTextFromInputEl = document.querySelector('.add-text');
+
+        inputIdFromEl.addEventListener('input', addText);
+
+        function addText() {
+            addTextFromInputEl.textContent = inputIdFromEl.value;
+        };
+
+        //2. При клике на кнопку с классом messageBtn необходимо элементу с классом message:
+        //- добавить два класса: animate_animated и animate_fadeInLeftBig
+        //- поставить данному элементу стиль visibility в значение 'visible'.
+
+        const messageBtnEl = document.querySelector('.messageBtn');
+        const changeMessageEl = document.querySelector('.message');
+
+        messageBtnEl.addEventListener('click', changeMessage);
+
+        function changeMessage() {
+            changeMessageEl.classList.add('animate_animated');
+            changeMessageEl.classList.add('animate_fadeInLeftBig');
+            //с помощью добавления класса active
+            changeMessageEl.classList.add('active');
+            //или через стили: 
+            //changeMessageEl.style.visibility = 'visible';
+        };
+
+        // 3. Необходимо при отправке формы проверить, заполнены ли все поля в этой форме. Если какое-либо поле не заполнено, форма не должна отправляться, также должны быть подсвечены незаполненные поля (необходимо поставить класс error незаполненным полям). Как только пользователь начинает заполнять какое-либо поле, необходимо, при вводе в данное поле, произвести проверку:
+        //- Если поле пустое, необходимо данное поле подсветить (поставить класс error данному полю).
+        // - Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
+
+        const formEl = document.querySelector('.form');
+        const inputElements = formEl.querySelectorAll('.form-control');
+
+        inputElements.forEach((el) => {
+            //если пользователь просто кликнул в инпут, но ничего не ввёл и убрал мышь с инпута, то в таком случае инпут остается неподсвеченным красным. поэтому может лучше дополнительно подсветить при событии click и пустом инпуте?
+            el.addEventListener('click', () => {
+                const inpVal = el;
+                checkInputs(inpVal);
+            });
+            el.addEventListener('input', () => {
+                const inpVal = el;
+                checkInputs(inpVal);
+            });
+        });
+
+        function checkInputs(el) {
+            if (el.value === '') {
+                el.classList.add('error');
+            } else {
+                el.classList.remove('error');
+            }
+        };
+
+        formEl.addEventListener('submit', (e) => {
+            inputElements.forEach((el) => {
+                if (el.value === '') {
+                    e.preventDefault();
+                }
+            })
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
