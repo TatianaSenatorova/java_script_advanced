@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div class="product-box">
+    <div class="product">
+        <img class="product__img" src="photo.jpeg" alt="photo">
+        <a class="product__name" href="product.html">Продукт из html</a>
+        <p class="product__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p class="product__price">55</p>
+
+    </div>
+  </div> -->
+  <div class="content"></div>
+    <script src="./json.js"></script>
+    <script>
+        const userData = JSON.parse(data);
+        console.log(userData);
+
+        const contentEl = document.querySelector('.content');
+        contentEl.textContent = `Это данные из json ${userData.name}`;
+
+
+
+
+    </script>
+</body>
+
+</html>
