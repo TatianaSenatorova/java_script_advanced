@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="./data.js" defer></script>
+</head>
+
+<body>
+    <div class="products center">
+        <template class="product-template">
+            <div class="product">
+                <a class="product__link" href="#">
+                    <img class="product__img" src="" alt="">
+                    <!-- <div class="product__img"></div> -->
+                </a>
+                <div class="product__info">
+                    <a class="product__link" href="#">
+                        <h6 class="product__title"></h6>
+                    </a>
+                    <div class="product__price-box">
+                        <p class="product__discount-price"> </p>
+                        <span class="product__discount-currency">$</span>
+                        <p class="product__price"></p>
+                        <span class="product__price-currency">$</span>
+                    </div>
+                    <div class="product__buy-box">
+                        <span class="product__minus">-</span>
+                        <input class="product__quantity" type="number" step="1" max="50" min="0" value="0">
+                        <span class="product__plus">+</span>
+
+                    </div>
+                    <button class="product__buy-button">В корзину</button>
+                </div>
+            </div>
+        </template>
+
+    </div>
+
+</body>
+
+</html>
