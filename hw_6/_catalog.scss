@@ -1,0 +1,227 @@
+@import 'mixins';
+@import 'vars';
+
+
+//убираем стандартный маркер details
+summary {
+    display: block;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.filter {
+    padding-top: 13px;
+    width: 360px;
+    position: relative;
+    z-index: 10;
+
+    &__content {
+        background: #ffffff;
+        padding: 0 16px 16px 16px;
+    }
+
+   butt //в момент, когда фильтр открыт, мы можем стилизовать элементы внутри
+    &[open] .filter__heading {
+        color: $colorSitePink;
+    }
+
+    &[open] path {
+        fill: $colorSitePink;
+    }
+
+    &[open] {
+        background: #ffffff;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    }
+
+    &__summary {
+        @include flex_style($justifyContent: none);
+        gap: 11px;
+        padding-left: 16px;
+    }
+
+    &__heading {
+        @include font_style($fontWeight: 600);
+        color: $colorText;
+    }
+
+    &__item {
+        margin-top: 16px;
+    }
+
+    &__head {
+        color: #6F6E6E;
+        @include font_style($fontWeight: 400);
+        padding: 8px 11px 11px 11px;
+        border-bottom: 1px solid #EBEBEB;
+        border-left: 5px solid $colorSitePink;
+    }
+
+    &__link-box {
+        @include flex_style($flexDirection: column, $alignItems: flex-start);
+        gap: 11px;
+        padding: 24px 12px;
+
+    }
+
+    &__link {
+        color: #6F6E6E;
+        @include font_style($fontWeight: 400);
+
+        &:hover {
+            color: $colorSitePink;
+        }
+    }
+
+    &__item[open] .filter__head {
+        color: $colorSitePink;
+    }
+}
+
+.filter_sort {
+    position: relative;
+    height: 82px;
+    padding-top: 39px;
+    @include flex_style($justifyContent: start, $flexWrap: nowrap, $alignItems: flex-start);
+    padding-top: 28px;
+    gap: 30px;
+}
+
+.sort {
+    padding-top: 12px;
+    @include flex_style($alignItems: flex-start);
+    gap: 28px;
+
+    &__details {
+        position: relative;
+
+    }
+
+    &__summary {
+        @include font_style();
+        @include flex_style($gap: 10px);
+
+    }
+
+    &__check {
+        @include flex_style($justifyContent: start, $flexWrap: nowrap);
+        gap: 9px;
+        @include font_style($fontWeight: 400);
+        font-family: 'Roboto', sans-serif;
+    }
+
+    &__heading {
+        @include font_style($fontWeight: 400);
+        color: #6F6E6E;
+
+    }
+
+    &__box {
+        @include flex_style($flexDirection: column, $alignItems: flex-start);
+        gap: 6px;
+        background: #FFF;
+        box-shadow: 6px 4px 35px 0px rgba(0, 0, 0, 0.21);
+        padding: 7px 30px 11px 9px;
+        position: absolute;
+        left: -9px;
+        top: 20px;
+        z-index: 2;
+    }
+
+}
+
+.pages {
+    padding: 15px;
+    @include flex_style($gap: 20px);
+    border: 1px solid #EBEBEB;
+    border-radius: 10px;
+
+    &__nav {
+        @include flex_style();
+        @include font_style($fontSize: 16px);
+        width: 202px;
+        list-style: none;
+        color: #C4C4C4;
+        margin-bottom: 0;
+        /*убрала эти свойства, присвоенные bootstrap'ом*/
+        padding-left: 0;
+        /*убрала эти свойства, присвоенные bootstrap'ом*/
+    }
+
+    &__arrow:hover path {
+        fill: $colorSitePink;
+    }
+
+    .page-link:hover {
+        color: $colorSitePink;
+    }
+
+}
+
+@media(max-width: 1024px) {
+    .center {
+        /*оставляем отступы по 16px с каждой стороны: 768-32=736/2=368*/
+        padding-left: calc(50% - 368px);
+        padding-right: calc(50% - 368px);
+    }
+
+    .product_remove {
+        display: none;
+    }
+
+    .filter_sort {
+        @include flex_style($justifyContent: space-between, $alignItems: flex-start);
+    }
+}
+
+@media(max-width: 767px) {
+    .center {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .product_top_box {
+        @include flex_style($flexDirection: column, $justifyContent: start, $gap: 32px);
+        padding-top: 24px;
+    }
+    .product-box_catalog{
+        padding-bottom: 77px;
+    }
+
+
+    .sort {
+        position: absolute;
+        right: 8px;
+        top: 24px;
+        @include flex_style($flexWrap: nowrap, $gap: 23px);
+
+        &__heading {
+            @include font_style($fontSize: 12px, $fontWeight: 400);
+        }
+       
+       
+
+    }
+
+       .filter {
+        width: 100px; //уменьшаем, чтобы не мешал открыть size
+
+        &[open] {
+            width: 360px; //возвращаем ширину, чтобы корретно при открытии все отразилось
+        }
+
+        &__heading {
+            display: none;
+        }
+
+        &__summary {
+            padding-left: 0;
+
+        }
+
+        &_sort {
+            padding-top: 24px;
+        }
+    }
+}

@@ -1,0 +1,203 @@
+@import 'mixins';
+@import 'vars';
+
+.regisration {
+    &__heading {
+        @include font_style($fontSize: 24px, $fontWeight: 400);
+        color: $colorSitePink;
+        height: 148px;
+        background: #F8F3F4;
+        padding-top: 60px;
+        padding-left: calc(50% - 570px);
+    }
+
+    .regisration-form {
+        max-width: 360px;
+    }
+
+    .personal-info {
+        @include flex_style($gap: 21px);
+
+    }
+
+    .content-registration {
+        @include flex_style($alignItems: flex-start, $flexWrap: nowrap, $gap: 22px);
+        padding-top: 64px;
+        padding-bottom: 96px;
+
+        &__title {
+            color: $colorText;
+            @include font_style($fontSize: 16px);
+        }
+
+        &__input {
+            padding: 12.5px 17px 15.5px;
+            border: 1px solid $colorLightGrey;
+            width: 100%;
+            outline: none;
+            transition: all 0.3s;
+
+            &::placeholder {
+                @include font_style($fontSize: 13px);
+                color: $colorLightGrey;
+            }
+        }
+
+        &__input:hover {
+            border: 1px solid $colorSitePink;
+            box-shadow: 0 0 10px $colorSitePink;
+        }
+
+        .box-radiobuttons {
+            margin-top: 33.5px;
+            @include flex_style($gap: 20px, $justifyContent: flex-start);
+            margin-bottom: 33px;
+        }
+
+        &__radio {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        &__radio+label {
+            @include flex_style($gap: 10px);
+            align-items: center;
+            user-select: none;
+            color: $colorText;
+            @include font_style($fontSize: 11px);
+        }
+
+        &__radio+label::before {
+            content: '';
+            display: inline-block;
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            border: 1px solid $colorGrey;
+            border-radius: 50%;
+            margin-right: 0.5em;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+        }
+
+        &__radio:not(:disabled):not(:checked)+label:hover::before {
+            border-color: $colorSitePink;
+            box-shadow: 0 0 10px $colorSitePink;
+        }
+
+        &__radio:checked+label::before {
+            border-color: $colorSitePink;
+            background-color: $colorSitePink;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+        }
+
+        .password-hint {
+            color: $colorLightGrey;
+            @include font_style();
+
+        }
+
+        &__button {
+            margin-top: 6px;
+            padding: 16px 20px 17px 29px;
+            background: $colorSitePink;
+            outline: none;
+            border: 1px solid $colorSitePink;
+            @include font_style($fontWeight: 400);
+            color: #fff;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .button-text {
+            padding-right: 20px;
+        }
+
+        &__button:hover {
+            background: #fff;
+            color: $colorSitePink;
+        }
+
+        &__button:hover path {
+            fill: $colorSitePink;
+        }
+
+
+    }
+}
+
+.benefits {
+    max-width: 57.19%;
+    @include flex_style($flexDirection: column, $gap: 20px, $alignItems: flex-start);
+
+    &__title,
+    &__text {
+        color: $colorText;
+        @include font_style($fontSize: 24px);
+    }
+
+    .benefits-list {
+        @include flex_style($flexDirection: column, $gap: 16px, $alignItems: flex-start);
+
+        &__item {
+            list-style-position: inside;
+            color: $colorText;
+            @include font_style($fontSize: 24px);
+            list-style-image: url(./img/list_marker.svg);
+
+            .list-space {
+                padding-left: 23px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .center {
+        /*оставляем отступы по 16px с каждой стороны: 768-32=736/2=368*/
+        padding-left: calc(50% - 368px);
+        padding-right: calc(50% - 368px);
+    }
+
+    .content-registration {
+        padding-top: 40px;
+    }
+
+    .benefits__title,
+    .benefits__text,
+    .list-space {
+        @include font_style($fontSize: 16px);
+    }
+}
+
+@media(max-width: 767px) {
+    .center {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .regisration {
+        &__heading {
+            text-align: center;
+        }
+
+        .content-registration {
+            @include flex_style($flexDirection: column, $gap: 40px);
+            padding-top: 40px;
+
+            .password-hint {
+                font-size: 13px;
+            }
+        }
+
+        .benefits {
+            max-width: 360px;
+
+
+        }
+
+    }
+}

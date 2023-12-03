@@ -1,0 +1,386 @@
+@import 'mixins';
+@import 'vars';
+
+.cart {
+
+    &__content {
+        padding-top: 96px;
+        padding-bottom: 128px;
+    }
+}
+
+.cart__top {
+    background: #F8F3F4;
+
+
+    &_title {
+        min-height: 148px;
+        color: $colorSitePink;
+        @include font_style($fontSize: 24px, $fontWeight: 400);
+        @include flex_style();
+    }
+}
+
+.cart__form {
+    width: 100%;
+    @include flex_style($alignItems: flex-start);
+
+    &_left {
+        width: 57.19%;
+    }
+
+    &_right {
+        width: 360px;
+        padding-top: 17px;
+    }
+
+    &_items {
+        @include flex_style($flexDirection: column, $gap: 40px, $alignItems: flex-start);
+        width: 100%;
+        margin-bottom: 72px;
+    }
+
+    &_item {
+        width: 100%;
+        @include flex_style($justifyContent: start, $alignItems: flex-start, $flexWrap: nowrap);
+        box-shadow: 14px 14px 31px 10px rgba(87, 87, 87, 0.15);
+        transition: all 0.3s;
+
+        &_box_price {
+            @include flex_style($gap: 24px, $justifyContent: start);
+        }
+
+        &_quantity {
+            text-align: center;
+            width: 44px;
+            height: 25px;
+            border: 1px solid #EAEAEA;
+            color: $colorGrey;
+            @include font_style($fontSize: 18px, $fontWeight: 400);
+            outline: none;
+           
+        }
+        &_quantity:hover{
+            border: 1px solid $colorSitePink;
+        box-shadow: 0 0 10px $colorSitePink;
+        }
+
+
+        &_img-box {
+            max-width: 100%;
+            vertical-align: middle;
+            object-fit: cover;
+        }
+
+        &_content {
+            width: 59.82%;
+            padding: 22px 31px;
+            position: relative;
+
+            &_firm,
+            &_title {
+                @include font_style($fontSize: 24px, $fontWeight: 400);
+                color: #222;
+            }
+
+            &_title {
+                margin-bottom: 42px;
+                transition: all 0.3s;
+            }
+
+            &_firm {
+                // @include flex_style();
+                transition: all 0.3s;
+            }
+
+            .close-item {
+                position: absolute;
+                top: 28px;
+                right: 24px;
+                transition: all 0.3s;
+            }
+
+            .close-item:hover path {
+                fill: $colorSitePink;
+            }
+
+            &_info {
+                @include font_style($fontSize: 22px, $fontWeight: 400);
+                color: $colorGrey;
+                margin-bottom: 6px;
+            }
+
+            &_color,
+            &_size {
+                color: $colorLightGrey;
+            }
+
+            &_price {
+                color: $colorSitePink;
+            }
+
+            &_color,
+            &_size,
+            &_price {
+                margin-left: 6px;
+            }
+        }
+
+
+    }
+
+    &_item:hover &_item_content_firm,
+    &_item:hover &_item_content_title {
+        color: $colorSitePink;
+    }
+
+    &_item:hover {
+        transform: scale(1.02);
+    }
+
+    &_buttons {
+        @include flex_style();
+    }
+
+    &_button {
+        font-family: 'Lato', sans-serif;
+        
+        padding: 15.5px 40px;
+        min-height: 50px;
+        border: 1px solid #A4A4A4;
+        background: #fff;
+        color: #000000;
+        @include font_style();
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    &_button:hover {
+        background: $colorSitePink;
+        color: white;
+    }
+
+    &_address {
+        max-width: 360px;
+        @include flex_style($flexDirection: column, $gap: 20.5px, $alignItems: flex-start);
+        margin-bottom: 57px;
+
+        &_title {
+            color: #000000;
+            @include font_style($fontSize: 16px);
+        }
+
+        &_input {
+            padding: 13px 17px 16px 17px;
+            width: 100%;
+            min-height: 45px;
+            border: 1px solid #A4A4A4;
+            outline: none;
+        }
+        &_input:hover{
+         border: 1px solid $colorSitePink;
+            box-shadow: 0 0 10px $colorSitePink;   
+        }
+        
+
+        &_dicount {
+            min-height: 35px;
+            padding: 11px 15px;
+            border: 1px solid #A4A4A4;
+            @include flex_style();
+            transition: all 0.3s;
+            background: #fff;
+        }
+
+        &_dicount:hover {
+            color: white;
+            background: $colorSitePink;
+        }
+    }
+
+    &_check {
+        max-width: 360px;
+        padding: 39px 34px 42px;
+        background: #F5F3F3;
+        @include flex_style($flexDirection: column);
+
+        &_subtitle {
+            @include flex_style($flexWrap: nowrap, $gap: 26px);
+            margin-bottom: 12px;
+            @include font_style($fontSize: 11px, $fontWeight: 400);
+            color: $colorGrey;
+            align-self: flex-end;
+
+        }
+
+        &_title {
+            @include flex_style($flexWrap: nowrap, $gap: 26px);
+            @include font_style($fontSize: 16px);
+            color: $colorText;
+            margin-bottom: 21px;
+            align-self: flex-end;
+
+        }
+
+        &_summ {
+            color: $colorSitePink;
+            @include font_style($fontSize: 16px, $fontWeight: 700);
+        }
+
+        &_line {
+            border: 1px solid rgba(226, 226, 226, 1);
+            width: 275px;
+            margin-bottom: 17px;
+        }
+
+        &_button {
+            padding: 15px 42px;
+            background: $colorSitePink;
+            color: white;
+            border: 1px solid $colorSitePink;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        &_button:hover {
+            background: white;
+            color: $colorSitePink;
+
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .center {
+        /*оставляем отступы по 16px с каждой стороны: 768-32=736/2=368*/
+        padding-left: calc(50% - 368px);
+        padding-right: calc(50% - 368px);
+    }
+    .cart {
+        &__content {
+            padding-top: 59px;
+            padding-bottom: 128px;
+        }
+
+        &__form {
+            @include flex_style($flexDirection: column);
+
+            &_left {
+                width: 100%;
+
+            }
+
+            &_right {
+                width: 100%;
+                padding-top: 64px;
+                @include flex_style($alignItems: flex-start);
+            }
+
+            &_items {
+                margin-bottom: 62px;
+            }
+
+            &_check,
+            &_address {
+                width: 360px;
+            }
+
+            &_check {
+                margin-top: 39px;
+            }
+
+            &_address {
+                margin-bottom: 0;
+            }
+
+
+        }
+
+
+    }
+}
+
+@media (max-width: 767px) {
+    .center {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .cart {
+        &__top_title {
+            padding-top: 50px;
+            @include flex_style($justifyContent: center, $alignItems: flex-start);
+        }
+
+        &__content {
+            padding-top: 39px;
+            padding-bottom: 96px;
+        }
+
+        &__form {
+            &_items {
+                margin-bottom: 30px;
+                @include flex_style($flexDirection: column, $alignItems: center, $gap: 32px);
+            }
+            &_right {
+                padding-top: 48px;
+                @include flex_style($flexDirection: column, $alignItems: center, $justifyContent: center);
+            }
+
+            &_left {
+                max-width: 358px;
+            }
+            &_img {
+                height: 188px;
+            }
+
+            &_item {
+                &_content {
+                    padding: 14px 17px;
+                }
+
+                &_img {
+                    height: 100%;
+                }
+
+                .close-item {
+                    width: 10px;
+                    height: 11px;
+                }
+
+                &_content_title,
+                &_content_firm {
+                    font-size: 16px;
+                }
+
+                &_content_title {
+                    margin-bottom: 25px;
+                }
+
+                &_content_info {
+                    font-size: 14px;
+                    margin-bottom: 4px;
+                }
+
+                &_quantity {
+                    width: 25px;
+                    height: 15px;
+                    font-size: 10px;
+                }
+            }
+
+            &_button {
+                font-size: 12px;
+                text-transform: lowercase;
+                padding: 9px 16px;
+                min-height: 33px;
+
+                &:first-letter {
+                    text-transform: capitalize;
+                }
+            }
+
+           
+        }
+    }
+}

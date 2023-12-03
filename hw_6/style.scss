@@ -1,0 +1,412 @@
+@import 'vars';
+@import 'mixins';
+@import 'header';
+@import 'product';
+@import 'catalog';
+@import 'cart';
+@import 'registration';
+@import 'footer';
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    background: #FFF;
+    font-family: 'Lato', sans-serif;
+}
+
+.center {
+    padding-left: calc(50% - $widthContent / 2);
+    padding-right: calc(50% - $widthContent / 2);
+}
+
+.promo {
+    display: flex;
+    padding-left: calc(50% - 800px);
+    padding-right: calc(50% - 800px);
+    background: #F1E4E6;
+
+    &__img {
+        width: 50%;
+    }
+
+    &__content {
+        margin-top: 18.13%;
+        padding-left: 63px;
+    }
+
+    &__info {
+        border-left: 12px solid $colorSitePink;
+        padding-left: 16px;
+    }
+
+    &__title {
+        color: #222;
+        @include font_style($fontSize: 48px, $fontWeight: 900)
+    }
+
+    &__heading_left {
+        color: #222;
+        @include font_style($fontSize: 32px, $fontWeight: 700)
+    }
+
+    &__heading_right {
+        color: $colorSitePink;
+        @include font_style($fontSize: 32px, $fontWeight: 700)
+    }
+}
+
+.sale {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+
+    &__item {
+        position: relative;
+        @include flex_style();
+    }
+
+    &__content {
+        @include flex_style($flexDirection: column, $justifyContent: center);
+        width: 100%;
+        position: absolute;
+    }
+
+    &__item_link {
+        display: block;
+        position: relative;
+    }
+
+    &__item_link::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(33, 22, 22, 0.7);
+    }
+
+    &__foto {
+        height: auto;
+    }
+
+    &__text {
+        color: #FFF;
+        text-align: center;
+        @include font_style($fontSize: 16px, $fontWeight: 400);
+    }
+
+    &__heading {
+        color: $colorSitePink;
+        @include font_style($fontSize: 24px, $fontWeight: 700);
+    }
+}
+
+.big_item {
+    grid-column: span 3;
+}
+
+.product-box {
+    padding-bottom: 95px;
+    @include flex_style($flexDirection: column);
+
+    &__heading {
+        text-align: center;
+        color: #222;
+        margin-bottom: 6px;
+        @include font_style($fontSize: 30px, $fontWeight: 400);
+    }
+
+    &__text {
+        text-align: center;
+        color: #9F9F9F;
+        margin-bottom: 48px;
+        @include font_style($fontWeight: 400);
+    }
+
+    &__content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 360px);
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+
+        margin-bottom: 48px;
+
+    }
+}
+
+.product {
+    // display: block;
+    background: rgba(248, 248, 248, 1);
+    max-width: 360px;
+    // @include flex_style($flexDirection: column, $justifyContent: flex-start);
+
+    .image-box {
+        position: relative;
+    }
+
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(58, 56, 56);
+        opacity: 0;
+        transition: all 0.3s;
+        @include flex_style($justifyContent: center);
+
+        &__box {
+            width: 139px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 1);
+            @include flex_style($gap: 11px, $justifyContent: center);
+        }
+
+        &__text {
+            @include font_style($fontWeight: 400);
+            color: #ffffff;
+        }
+    }
+
+    .mask:hover {
+        opacity: 0.86;
+    }
+
+    &__content {
+        padding: 25px 16px;
+        @include flex_style($flexDirection: column, $gap: 16px, $alignItems: flex-start);
+    }
+
+    &__heading {
+        color: #000;
+        @include font_style($fontSize: 13px, $fontWeight: 400);
+    }
+
+    &__text {
+        color: #5D5D5D;
+        @include font_style();
+    }
+
+    &__price {
+        color: $colorSitePink;
+        @include font_style($fontSize: 16px, $fontWeight: 400);
+    }
+}
+
+
+
+.button_browse {
+    text-decoration: none;
+    color: $colorSitePink;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: 1px solid $colorSitePink;
+    padding: 15px 39px;
+}
+
+.button_browse:hover {
+    background: $colorSitePink;
+    color: white;
+}
+
+.advantages {
+    background-color: #222222;
+    padding-top: 104px;
+    padding-bottom: 104px;
+    @include flex_style($flexWrap: nowrap);
+
+    &__item {
+        max-width: 360px;
+        @include flex_style($flexDirection: column);
+    }
+
+    &__img {
+        margin-bottom: 28px;
+    }
+
+    &__img:hover {
+        filter: drop-shadow(5px -5px 10px $colorSitePink);
+    }
+
+    &__heading {
+        color: #FBFBFB;
+        margin-bottom: 16px;
+        @include font_style($fontSize: 20px, $fontHeight: 24px)
+    }
+
+    &__text {
+        @include font_style();
+        text-align: center;
+        color: #FBFBFB;
+    }
+}
+
+
+//можно ли так дополнительно написать запрос, чтобы сохранить размер карточек
+@media (max-width: 1140px) {
+    .product_remove {
+        display: none;
+    }
+}
+
+@media(max-width: 1024px) {
+    .center {
+        /*оставляем отступы по 16px с каждой стороны: 768-32=736/2=368*/
+        padding-left: calc(50% - 368px);
+        padding-right: calc(50% - 368px);
+    }
+
+    .promo__title {
+        font-size: 44px;
+
+        &__heading_left,
+        &__heading_right {
+            font-size: 24px;
+        }
+
+        &__info {
+            padding-left: 39px;
+        }
+    }
+    .promo{
+        &__heading_right,
+        &__heading_left {
+            font-size: 24px;
+        }
+    }
+
+    .sale {
+        gap: 20px;
+        padding-bottom: 110px;
+    }
+
+    .product-box {
+        padding-bottom: 64px;
+
+    }
+
+    .product-box__heading {
+        margin-bottom: 3px;
+    }
+
+    .product-box__text {
+        margin-bottom: 74px;
+    }
+
+    .product-box__content {
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .advantages {
+        padding-top: 48px;
+        padding-bottom: 64px;
+        @include flex_style($flexDirection: column, $gap: 46px);
+    }
+}
+
+@media(max-width: 767px) {
+    .center {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .promo {
+        min-height: 363px;
+        justify-content: center;
+        align-items: center;
+
+        &__img {
+            display: none;
+        }
+
+        &__title {
+            font-size: 38px;
+        }
+
+        &__heading_right,
+        &__heading_left {
+            font-size: 20px;
+        }
+
+        &__content {
+            padding-left: 0;
+            margin-top: 0;
+        }
+
+        &__info {
+            margin-top: 0;
+        }
+    }
+
+    .sale {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        padding-top: 64px;
+        padding-bottom: 64px;
+        gap: 32px;
+
+        &__item {
+            padding-left: 8px;
+            padding-right: 8px;
+            max-width: 360px;
+        }
+    }
+
+    .big_item {
+        min-height: 111px;
+        grid-column: span 1;
+
+        &_link {
+            height: 100%;
+        }
+    }
+
+    .big_foto_sale {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .product-box {
+         &__text {
+            margin-bottom: 64px;
+        }
+
+        &__content {
+            margin-bottom: 40px;
+        }
+        &_catalog{
+            padding-bottom: 77px;
+        }
+    }
+
+    .advantages {
+        @include flex_style($flexDirection: column, $gap: 46px);
+        padding-bottom: 81px;
+
+        &__text {
+            max-width: 348px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-stretch;
+  text-align: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+.card {
+  min-height: 100px;
+}/*# sourceMappingURL=style.css.map */

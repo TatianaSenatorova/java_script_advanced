@@ -1,0 +1,259 @@
+@import 'mixins';
+@import 'vars';
+
+%absolute_center {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product_top {
+    background: #F8F3F4;
+
+    &_box {
+        @include flex_style();
+        min-height: 148px;
+
+        &_heading {
+            color: $colorSitePink;
+            @include font_style($fontSize: 24px, $fontWeight: 400);
+        }
+
+        &_items {
+            @include flex_style();
+        }
+
+        &_breadcrumb {
+            @include font_style($fontHeight: 16.8px);
+            color: #636363;
+        }
+
+        &_active_breadcrumb {
+            @include font_style($fontWeight: 700, $fontHeight: 16.8px);
+            color: $colorSitePink;
+        }
+    }
+}
+
+.carousel {
+    @include flex_style($justifyContent: space-evenly, $flexWrap: nowrap);
+}
+
+
+
+.img-carousel {
+    max-width: 61%;
+    position: relative;
+    overflow: hidden;
+}
+
+.products_carousel {
+    background: #F7F7F7;
+    margin: 0 auto;
+
+    z-index: 0;
+
+
+    &_box {
+        padding-top: 11px;
+        padding-bottom: 42px;
+        width: 100%;
+    }
+
+    // &_item {
+    //    max-width: 597px;
+
+    // }
+
+    &_arrow_box {
+        display: inline-block;
+        width: 47px;
+        height: 47px;
+        background: #2A2A2A26;
+    }
+
+    &_arrow {
+        @extend %absolute_center;
+    }
+
+    &_arrow:hover path {
+        fill: $colorSitePink;
+    }
+}
+
+.d-block {
+
+    z-index: 0;
+}
+
+.product_info {
+    margin-top: -65px;
+    padding-bottom: 64px;
+
+
+    text-align: center;
+    @include flex_style($justifyContent: center, $flexDirection: column);
+    z-index: 999;
+    background: white;
+
+    &_container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    &_heading {
+        color: $colorSitePink;
+        @include font_style();
+        margin-bottom: 12px;
+        margin-top: 65px;
+    }
+
+    &_divider {
+        border: 3px solid $colorSitePink;
+        width: 63px;
+        margin-bottom: 12px;
+    }
+
+    &_motto {
+        @include font_style($fontSize: 18px);
+        color: #4D4D4D;
+        margin-bottom: 48px;
+    }
+
+    &_content {
+        color: #5E5E5E;
+        @include font_style();
+        display: block;
+        max-width: 554px;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    &_price {
+        @include font_style($fontSize: 24px);
+        color: $colorSitePink;
+        margin-bottom: 130px;
+    }
+}
+
+.select_group {
+    margin-bottom: 48px;
+
+    &_btn {
+        background: #ffffff;
+        color: #6F6E6E;
+        border: none;
+        @include font_style($fontWeight: 400);
+        border-radius: 10px;
+    }
+}
+
+.select_group_btn:hover {
+    background: $colorSitePink;
+}
+
+.button_cart {
+    color: $colorSitePink;
+    @include flex_style();
+    gap: 24px;
+    @include font_style($fontSize: 16px, $fontWeight: 400);
+    border: 1px solid $colorSitePink;
+    padding: 15px 57px 15px 24px;
+    transition: all 0.3s linear;
+}
+
+.button_cart:hover {
+    background: rgba(255, 106, 106, 1);
+    color: white;
+}
+
+.product-box_page-product {
+    padding-top: 129px;
+}
+
+.page_products {
+    padding-top: 129px;
+    padding-bottom: 148px;
+
+    &_box {
+        @include flex_style();
+
+        &__content {
+            @include flex_style($flexDirection: column, $alignItems: start);
+            padding: 25px 16px 20px 16px;
+
+        }
+    }
+}
+
+@media (max-width: 1140px) {
+    .product-remove_catalog {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .center {
+        /*оставляем отступы по 16px с каждой стороны: 768-32=736/2=368*/
+        padding-left: calc(50% - 368px);
+        padding-right: calc(50% - 368px);
+    }
+
+
+    .products_carousel_box {
+        padding-bottom: 29px;
+    }
+
+    .product_info {
+        margin-top: 0;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .center {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .products_carousel_box {
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+
+    .img-carousel {
+        max-width: 100%;
+    }
+
+    .product_info {
+        &_motto {
+            margin-bottom: 32px;
+        }
+
+        &_price {
+            margin-bottom: 81px;
+        }
+    }
+
+    .select_group {
+        margin-bottom: 64px;
+
+        &_btn {
+            font-size: 10px;
+        }
+    }
+
+    .product-box {
+        padding-top: 64px;
+    }
+
+    .product-remove_catalog {
+        display: block;
+    }
+
+    .product-remove_mobile {
+        display: none;
+    }
+}

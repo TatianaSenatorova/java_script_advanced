@@ -1,0 +1,144 @@
+@import 'vars';
+@import 'mixins';
+
+@keyframes fade-in-right {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.box-content {
+    overflow: hidden;
+}
+
+.header {
+    background: #353333;
+    position: relative;
+
+    &__top {
+        min-height: 75px;
+        @include flex_style();
+    }
+
+    &__left {
+        @include flex_style($alignItems: flex-end, $gap: 41px);
+    }
+
+    &__right {
+        margin-right: 11px;
+        @include flex_style($gap: 33px);
+    }
+
+    &__icon {
+        cursor: pointer;
+    }
+
+    &__icon:hover path {
+        fill: $colorSitePink;
+    }
+}
+
+
+.nav {
+    // visibility: hidden;
+    background: #ffffff;
+    width: 232px;
+    padding: 37px 32px 34px 32px;
+    position: absolute;
+    top: 75px;
+    right: 0px;
+    transition: all 0.3s linear;
+    display: none;
+    z-index: 2;
+    overflow: hidden;
+
+    .menu-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        transition: all 0.3s;
+    }
+
+    .menu-close:hover path {
+        fill: $colorSitePink;
+    }
+
+    .menu {
+        @include flex_style($flexDirection: column, $alignItems: flex-start);
+
+        &__title {
+            color: $colorText;
+            @include font_style($fontWeight: 700);
+            padding-bottom: 4px;
+        }
+
+        &__subtitle {
+            color: $colorSitePink;
+            @include font_style($fontWeight: 400);
+            padding-top: 20px;
+            padding-bottom: 12px;
+        }
+
+        &__item {
+            color: $colorLightGrey;
+            @include font_style($fontWeight: 400);
+            list-style-type: none;
+            padding-left: 18px;
+        }
+
+        .boxmenu-items {
+            @include flex_style($flexDirection: column, $gap: 11px, $alignItems: flex-start);
+        }
+    }
+
+
+
+
+
+    &__menu_title_first {
+        margin-bottom: 4px;
+    }
+}
+
+//прячем коробочку  за экран
+#burger {
+    position: absolute;
+    left: -9999999px;
+    visibility: hidden;
+
+    &:checked~.nav {
+        display: block;
+        animation: fade-in-right 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        height: fit-content;
+        overflow: visible;
+        padding: 37px 32px 34px 32px;
+    }
+
+
+}
+
+@media(max-width: 767px) {
+    .header__link-site {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .header__left {
+        margin-left: 16px;
+    }
+
+    .header__right {
+        margin-right: 16px;
+    }
+}
