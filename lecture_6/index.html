@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <audio class="audio" controls
+        src="./Svyatoslav_Rikhter_Warsaw_National_Philharmonic_Orchestra_Stanislaw_Wislocki_Volfgang_Amadejj_Mocart_Lyudvig_van_Betkhoven_-_Mozart_Piano_Concerto_No_20_in_D_Minor_K_466_-_III_Rondo_Allegro_assai_70852101.mp3"
+        preload="auto"></audio>
+    <script>
+        const audioEl = document.querySelector('.audio');
+        audioEl.addEventListener('play', function (e) {
+            console.log("Вы нажали аудио плей");
+        });
+        audioEl.addEventListener('pause', function (e) {
+            console.log("Вы нажали pause");
+        });
+
+    </script>
+</body>
+
+</html>

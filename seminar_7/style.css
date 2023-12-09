@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.controls {
+  position: relative;
+  width: 100%;
+}
+.controls__wrapper {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-end;
+  gap: 30px;
+}
+.controls__timeline {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+.controls__range {
+  width: 100%;
+}
+.controls__progress-area {
+  padding: 12px;
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.controls__time-pointer {
+  color: #1809ba;
+  font-size: 24px;
+  font-weight: 600;
+}
+.controls__marker-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1809ba;
+  cursor: pointer;
+}
+
+.options {
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 40% 20% 20%;
+  justify-content: space-between;
+  list-style: none;
+}
+.options__center {
+  display: flex;
+  justify-content: center;
+}
+.options__right {
+  display: flex;
+  justify-content: flex-end;
+}
+.options__volume-button {
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+.options__icon {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.options__icon_play {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.options__icon_pause {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.options__left, .options__video-timer {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.options__current-time, .options__separator, .options__video-duration {
+  display: flex;
+  align-items: center;
+  color: #1809ba;
+  font-size: 20px;
+  font-weight: 600;
+}
+.options__volume-range {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  max-width: 100px;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+}
+.options__volume-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  cursor: pointer;
+}
+.options__center {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.options__skip-backward, .options__play-pause, .options__skip-forward, .options__fullscreen, .options__speed {
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+.options__play-pause {
+  position: relative;
+}
+.options__right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.options__playback-content {
+  position: relative;
+}
+.options__speed-options {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+  min-width: 200px;
+  list-style: none;
+  color: #fff;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(144, 190, 243, 0.9882352941);
+  padding: 15px;
+  border-radius: 10px;
+}
+.options__speed-item {
+  padding-left: 30px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.options__speed-item:hover {
+  color: #1809ba;
+}
+.options__buttons {
+  position: relative;
+  border: transparent;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+}
+.options__button-play {
+  width: 100%;
+  height: 100%;
+  border-color: transparent transparent transparent #1809ba;
+  transition: 0.3s;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 20px 0 20px 30px;
+}
+.options__button-pause {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-color: #1809ba;
+  border-style: double;
+  border-width: 0px 0 0px 16px;
+}
+
+.active-speed-menu {
+  display: flex;
+}
+
+.show-button {
+  display: block;
+}
+
+.hide-button {
+  display: none;
+}
+
+.video {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .options__skip-backward, .options__play-pause, .options__skip-forward, .options__fullscreen, .options__speed {
+    background: transparent;
+    border: none;
+    width: 15px;
+    height: 15px;
+  }
+}/*# sourceMappingURL=style.css.map */
